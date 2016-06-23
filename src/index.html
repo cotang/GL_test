@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Заголовок</title>
+<meta name="description" content="">
+@@include('_html_inc/page_head.html')
+</head>
+
+<body>
+
+	@@include('_html_inc/page_header.html')
+
+
+	<div class="container">
+		<div class="row">
+
+			<main class="col-xs-8">
+
+				<section class="common block" id="common">
+					<h1 class="common__title">Общие требования <br />(h1 - Arimo, 36px; color: #292929)</h1>
+					<ol class="common__list">
+						<li>Тестовое задание (ТЗ) состоит из нескольких частей. После выполнения каждой части необходимо фиксировать изменения коммитом на гитхабе.</li>
+						<li>В верстке необходимо использовать один из CSS-препроцессоров (Sass, Less, Stylus или др.) и удобный вам инструмент для сборки проекта.</li>
+						<li>Если в задании не указано как должен выглядеть блок, нужно постараться стилизовать его в стиле ТЗ, пиксельной точности не требуется.</li>
+					</ol>
+					<p class="common__text">текст - Arimo, 15px; color: #757575<br />блок - box-shadow: 0 1px 2px rgba(0,0,0,.1);</p>
+				</section>
+
+
+
+				<section class="news block" id="part1">
+					<h2 class="news__title">Часть 1: необходимо сверстать список новостей (h2 - Arimo, 24px; color: #292929)</h2>
+
+					<p>На странице отображается 5 новостей. В конце списка отображается кнопка "показать еще", при нажатии на которую в конец списка подгружается еще 5 новостей.</p>
+					<p>Данные для загрузки новостей передаются в формате JSON:</p>
+
+					<div class="news__data">
+<pre>[
+    {
+        "date": "06.01.2015",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "preview": "Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.",
+        "url": "#testLink",
+        "image": "img/tmp/tmp.jpg"
+    },
+    {
+        "date": "07.01.2015",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "preview": "Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.",
+        "url": "#testLink",
+        "image": "img/tmp/tmp.jpg"
+    },
+    {
+        "date": "08.01.2015",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "preview": "Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.",
+        "url": "#testLink"
+    },
+    {
+        "date": "09.01.2015",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "preview": "Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.",
+        "url": "#testLink",
+        "image": "img/tmp/tmp.jpg"
+    },
+    {
+        "date": "10.01.2015",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "preview": "Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.",
+        "url": "#testLink",
+        "image": "img/tmp/tmp.jpg"
+    }
+]</pre>
+					</div>
+
+
+					<section class="newslist">
+						<ul class="newslist__list">
+							<li class="newslist__item">
+								<img src="img/pic.jpg" height="146" width="206" alt="lorem">
+								<div class="newslist__content">
+									<div class="newslist__date">01.01.2015</div>
+									<h3 class="newslist__title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
+									<div class="newslist__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora praesentium dolore quae culpa ipsam. Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.</div>
+								</div>
+							</li>
+							<li class="newslist__item">
+								<img src="img/pic.jpg" height="146" width="206" alt="lorem">
+								<div class="newslist__content">
+									<div class="newslist__date">02.01.2015</div>
+									<h3 class="newslist__title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
+									<div class="newslist__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora praesentium dolore quae culpa ipsam. Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.</div>
+								</div>
+							</li>
+							<li class="newslist__item">
+								<div class="newslist__content">
+									<div class="newslist__date">03.01.2015</div>
+									<h3 class="newslist__title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
+									<div class="newslist__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora praesentium dolore quae culpa ipsam. Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.</div>
+								</div>
+							</li>
+							<li class="newslist__item">
+								<img src="img/pic.jpg" height="146" width="206" alt="lorem">
+								<div class="newslist__content">
+									<div class="newslist__date">04.01.2015</div>
+									<h3 class="newslist__title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
+									<div class="newslist__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora praesentium dolore quae culpa ipsam. Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.</div>
+								</div>
+							</li>
+							<li class="newslist__item">
+								<img src="img/pic.jpg" height="146" width="206" alt="lorem">
+								<div class="newslist__content">
+									<div class="newslist__date">05.01.2015</div>
+									<h3 class="newslist__title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
+									<div class="newslist__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora praesentium dolore quae culpa ipsam. Commodi atque vero ut dolorem, ullam qui sit! Modi numquam unde, aut ab. Perspiciatis, consequatur, natus.</div>
+								</div>
+							</li>							
+						</ul>
+						<button class="news__button">Показать еще</button>
+					</section>
+				</section>
+
+
+			</main>
+
+			<aside class="col-xs-4">
+				<section class="block">
+					<nav class="content">
+						<ul class="content__list">
+							<li class="content__item"><a href="">Общие требования</a></li>
+							<li class="content__item"><a href="">Часть 1: список новостей</a></li>
+							<li class="content__item"><a href="">Часть 2: форма</a></li>
+							<li class="content__item"><a href="">Часть 3: блок с иконками</a></li>
+							<li class="content__item"><a href="">Часть 4: блок навигации</a></li>
+							<li class="content__item"><a href="">Часть 5: адаптация под устройства</a></li>
+							<li class="content__item"><a href="">Часть 6: оптимизация</a></li>
+						</ul>
+					</nav>
+				</section>
+			</aside>
+
+		</div>
+	</div>
+
+	@@include('_html_inc/page_bottom.html')
+
+</body>
+</html>
