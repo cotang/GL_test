@@ -1,4 +1,7 @@
 .content{
+	position: relative;
+	// width: 100%;
+
 	&__list{
 		list-style-type: none;
 		margin: 0;
@@ -8,6 +11,10 @@
 	&__item{
 		padding: 15px 0;
 		border-bottom: 1px solid @link-color--underline;
+
+		&:last-child{
+			border-bottom: none;
+		}
 	}
 	
 }
