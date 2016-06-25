@@ -29,6 +29,7 @@
 
 
 
+
 				<section class="news block" id="part1">
 					<h2 class="news__title">Часть 1: необходимо сверстать список новостей (h2 - Arimo, 24px; color: #292929)</h2>
 
@@ -120,6 +121,54 @@
 						<button class="news__button">Показать еще</button>
 					</section>
 				</section>
+
+
+				<section class="form block" id="part2">
+					<h2 class="form__title">Часть 2: форма обратной связи</h2>
+					<p>При нажатии на кнопку "Обратная связь" необходимо открывать всплывающее окно с формой (Ajax), содержащей следующие поля:</p>					
+					<ol class="form__list">
+						<li>ФИО (обязательное поле)</li>
+						<li>Телефон (обязательное поле, если не заполнено поле "Email")</li>
+						<li>Email (обязательное поле, если не заполнено поле "Телефон")</li>
+						<li>Текст сообщения (обязательное поле)</li>
+						<li>Отправить</li>						
+					</ol>
+					<p>Форма должна валидироваться на клиенте, после отправки формы, с сервера приходит ответ в формате JSON.</p>
+
+					<p>В случае успеха:</p>
+					<div class="form__data">
+<pre>{
+    "success": true,
+    "msg": "Сообщение отправлено, в ближайшее время наш менеджер свяжется с Вами."
+}</pre>
+					</div>
+
+					<p>В случае неудачи:</p>
+					<div class="form__data">
+<pre>{
+    "success": false,
+    "fields": [
+        {
+            "name": "email"
+            "error": "Введенный Вами e-mail не найден"
+        }
+    ]
+}</pre>
+					</div>
+
+					<p>или:</p>
+					<div class="form__data">
+<pre>{
+    "success": false,
+    "msg": "Ошибка отправки формы"
+}</pre>
+					</div>
+
+					<button class="form__button">Обратная связь</button>
+				</section>
+
+
+				
 
 
 			</main>

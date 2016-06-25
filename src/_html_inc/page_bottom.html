@@ -1,3 +1,19 @@
+<div class="modal"> 
+	<h3>Форма обратной связи</h3>
+	<form action="javascript:void(0);" id="feedback" method="post" enctype="multipart/form-data">
+		<label><span>ФИО<br /><i>(Обязательное поле)</i></span><input type="text" name="name" placeholder="Your name" required="required"></label>
+		<label><span>Телефон<br /><i>(обязательное поле, если не заполнено поле "Email")</i></span><input type="tel" name="tel" placeholder="Your phone" required="required"></label>		
+		<label><span>Email<br /><i>(обязательное поле, если не заполнено поле "Телефон")</i></span><input type="email" name="email" placeholder="Your e-mail" required="required"></label>
+		<label><span>Сообщение<br /><i>(Обязательное поле)</i></span><textarea name="text" placeholder="Текст сообщения" required="required"></textarea></label>
+		<input type="submit" value="Отправить">
+		<!-- Some notifications block (ex. error or success) -->
+		<div class="form-notif"></div>
+	</form>
+</div>
+<div class="overlay"></div>
+
+
+
 <script src="js/jquery-2.2.0.min.js"></script>
 <script src="js/modernizr-custom.js"></script>
 <script src="js/script.js"></script>

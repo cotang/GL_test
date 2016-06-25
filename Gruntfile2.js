@@ -83,7 +83,7 @@ module.exports = function(grunt) {
         // откуда
         cwd: 'src/js/',
         // какие файлы
-        src: ['*.*'],
+        src: ['*.js'],
         // куда
         dest: 'build/js/',
       },
@@ -128,14 +128,12 @@ module.exports = function(grunt) {
           spawn: false,
         },
       },
-      // следить за скриптами
+       // следить за скриптами     
       scripts: {
-        // за фактом с сохранения каких файлов следить
-        files: ['src/js/**/*.*'],
-        // какую задачу при этом запускать (сами задачи — см. ниже)
+        files: ['src/js/*.js'],
         tasks: ['js'],
         options: {
-          spawn: false,
+          spawn: false
         },
       },      
       // следить за картинками
@@ -188,9 +186,15 @@ module.exports = function(grunt) {
       }
     }
 
+    // публикация на gh-pages
+    'gh-pages': {
+        options: {
+          base: 'build'
+        },
+        src: ['**']
+    }    
+
   });
-
-
 
   // задача по умолчанию
   grunt.registerTask('default', [
@@ -213,7 +217,7 @@ module.exports = function(grunt) {
   // только обработка скриптов
   grunt.registerTask('js', [
     'copy:js',
-  ]);  
+  ]);
 
   // только обработка картинок
   grunt.registerTask('img', [

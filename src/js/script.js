@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
   $('.news__button').on('click',function(){
     $.getJSON('js/test.json', {}, function(json){
 
@@ -21,11 +20,97 @@ $(document).ready(function(){
             .append('<div class="newslist__text">' + json[i].preview + '</div>')
           $(li).find('a').wrap('<h3 class="newslist__title"></h3>');
       };
-
-
     });  
       $('.news__button').hide();                  
   });
+
+
+
+  /* Open the modal window */
+  $('.form__button').on('click', function(event){ 
+    event.preventDefault();
+    $('.overlay').fadeIn(400,
+      function(){ 
+        $('.modal') 
+          .show()
+          .animate({opacity: 1}, 200); 
+    });
+  });
+  /* Close the modal window */
+  $('.overlay').on('click', function(){ 
+    $('.modal')
+      .animate({opacity: 0}, 200,  
+        function(){
+          $(this).hide();
+          $('.overlay').fadeOut(400);
+        }
+      );
+  });
+
+
+  var inputTel = $('#feedback').find('input[type="tel"]');
+  var inputEmail = $('#feedback').find('input[type="email"]'); 
+
+  $(inputTel).on('change', function(){
+    if ($(this).val() != undefined) {
+      $(inputEmail).attr('required', false);
+    };
+    if ($(this).val() == "") {
+      $(inputEmail).attr('required', 'required');
+    };    
+  });
+  $(inputEmail).on('change', function(){
+    if ($(this).val() != undefined) {
+      $(inputTel).attr('required', false);
+    };
+    if ($(this).val() == "") {
+      $(inputTel).attr('required', 'required');
+    };
+  });
+//  ||
+// .removeAttr('required');
+
+
+
+
+    var inputSubmit = $('#feedback').find('input[type="submit"]');
+  $(inputSubmit).on('click',function(){
+   // var strInForm = $('#feedback').serialize();
+    // ajax body
+    $.ajax({
+      url: 'js/feedback.json',
+      dataType: 'json',
+      // data: strInForm,
+      success: function(json) {
+        var result = '<span class="notification-success">' + json[0].msg + '</span>'; //success message
+        $('.form-notif').html(result); //show success message
+      },
+      error: function(json) {
+        var result = '<span class="notification-error">' + json[1].msg + '</span>'; //error message
+        $('.form-notif').html(result); //show error message
+      }     
+    });
+  });
+
+
+      // success: function(msg) {
+
+      //   if(msg == 'OK') {
+      //     // if send success then show message
+      //     result = '<span class="notification-success">Mail send success!</span>'; //success message
+      //     $(".notification-load").hide(); //hide load message
+      //     $('.form-notif').html(result); //show success message
+      //     $(this).find("input[type=submit]"); //show submit button
+      //   } else {
+      //     // if send error then show error message
+      //     result = msg;
+      //     $(this).find("input[type=submit]"); //show submit button
+      //     $('.form-notif').html(result); //show error message
+      //   }
+      // }
+
+
+
 
 
 });
