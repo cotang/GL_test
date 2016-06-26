@@ -65,6 +65,24 @@ module.exports = function(grunt) {
       }
     },
 
+    // склеиваем файлы js
+    concat: {
+      start: {
+        src: [    
+          'src/js/*.js'
+        ],
+        dest: 'build/js/script.js'
+      }
+    },
+
+    // минимизируем файлы js
+    uglify: {
+      start: {
+        files: {
+          'build/js/script.min.js': ['build/js/script.js']
+        }
+      }
+    },
     imagemin: {
       build: {
         options: {
@@ -105,16 +123,6 @@ module.exports = function(grunt) {
         src: ['**/*.{png,jpg,gif,svg}'],
         // куда
         dest: 'build/img/',
-      },
-
-      js: {
-        expand: true,
-        // откуда
-        cwd: 'src/js/',
-        // какие файлы
-        src: ['*.*'],
-        // куда
-        dest: 'build/js/',
       },
     },
 
@@ -226,7 +234,7 @@ module.exports = function(grunt) {
     'style',
     'img',
     'includereplace:html',
-    'copy:js',
+    'js',
     'browserSync',
     'watch'
   ]);
@@ -241,7 +249,8 @@ module.exports = function(grunt) {
 
   // только обработка скриптов
   grunt.registerTask('js', [
-    'copy:js',
+    'concat',
+    'uglify',   
   ]);  
 
   // только обработка картинок
