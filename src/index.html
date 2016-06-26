@@ -15,7 +15,23 @@
 	<div class="container">
 		<div class="row">
 
-			<main class="col-xs-8">
+			<aside class="col-md-4 col-md-push-8">
+				<section class="content block">
+					<nav class="content__nav">
+						<ul class="content__list">
+							<li class="content__item"><a href="#common">Общие требования</a></li>
+							<li class="content__item"><a href="#part1">Часть 1: список новостей</a></li>
+							<li class="content__item"><a href="#part2">Часть 2: форма</a></li>
+							<li class="content__item"><a href="#part3">Часть 3: блок с иконками</a></li>
+							<li class="content__item"><a href="#part4">Часть 4: блок навигации</a></li>
+							<li class="content__item"><a href="#part5">Часть 5: адаптация под устройства</a></li>
+							<li class="content__item"><a href="#part6">Часть 6: оптимизация</a></li>
+						</ul>
+					</nav>
+				</section>
+			</aside>		
+
+			<main class="col-md-8 col-md-pull-4">
 
 				<section class="common block" id="common">
 					<h1 class="common__title">Общие требования <br />(h1 - Arimo, 36px; color: #292929)</h1>
@@ -34,7 +50,7 @@
 					<h2 class="news__title">Часть 1: необходимо сверстать список новостей (h2 - Arimo, 24px; color: #292929)</h2>
 
 					<p>На странице отображается 5 новостей. В конце списка отображается кнопка "показать еще", при нажатии на которую в конец списка подгружается еще 5 новостей.</p>
-					<p>Данные для загрузки новостей передаются в формате JSON:</p>
+					<p><a href="#" class="news__json">Данные для загрузки новостей передаются в формате JSON:</a></p>
 
 					<div class="news__data">
 <pre>[
@@ -124,7 +140,7 @@
 
 
 				<section class="form block" id="part2">
-					<h2 class="form__title">Часть 2: форма обратной связи</h2>
+					<h2 class="form__title">Часть 2: Форма обратной связи</h2>
 					<p>При нажатии на кнопку "Обратная связь" необходимо открывать всплывающее окно с формой (Ajax), содержащей следующие поля:</p>					
 					<ol class="form__list">
 						<li>ФИО (обязательное поле)</li>
@@ -135,7 +151,7 @@
 					</ol>
 					<p>Форма должна валидироваться на клиенте, после отправки формы, с сервера приходит ответ в формате JSON.</p>
 
-					<p>В случае успеха:</p>
+					<p><a href="#" class="form__json">В случае успеха:</a></p>
 					<div class="form__data">
 <pre>{
     "success": true,
@@ -143,7 +159,7 @@
 }</pre>
 					</div>
 
-					<p>В случае неудачи:</p>
+					<p><a href="#" class="form__json">В случае неудачи:</a></p>
 					<div class="form__data">
 <pre>{
     "success": false,
@@ -156,7 +172,7 @@
 }</pre>
 					</div>
 
-					<p>или:</p>
+					<p><a href="#" class="form__json">или:</a></p>
 					<div class="form__data">
 <pre>{
     "success": false,
@@ -223,28 +239,15 @@
 				</section>
 
 
-
+				<section class="adaptation block" id="part5">
+					<h2 class="adaptation__title">Часть 5: Адаптация под устройства.</h2>
+					<p>Реализовать адаптацию ТЗ под планшеты и мобильные устройства</p>
+				</section>
 
 
 
 
 			</main>
-
-			<aside class="col-xs-4">
-				<section class="content block">
-					<nav class="content__nav">
-						<ul class="content__list">
-							<li class="content__item"><a href="#common">Общие требования</a></li>
-							<li class="content__item"><a href="#part1">Часть 1: список новостей</a></li>
-							<li class="content__item"><a href="#part2">Часть 2: форма</a></li>
-							<li class="content__item"><a href="#part3">Часть 3: блок с иконками</a></li>
-							<li class="content__item"><a href="#part4">Часть 4: блок навигации</a></li>
-							<li class="content__item"><a href="#part5">Часть 5: адаптация под устройства</a></li>
-							<li class="content__item"><a href="#part6">Часть 6: оптимизация</a></li>
-						</ul>
-					</nav>
-				</section>
-			</aside>
 
 		</div>
 	</div>

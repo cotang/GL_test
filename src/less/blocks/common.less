@@ -1,9 +1,20 @@
 .common{
 	&__title{
-		font-size: @font-size--h1;
+		font-size: @font-size--h1-cell;
 		font-weight: normal;		
 		color: @text-color--title;
 		margin: 0;
+
+		@media (min-width: @screen-md) {
+			font-size: @font-size--h1;
+		}		
+	}
+	&__list{
+		padding-left: 20px;
+		
+		@media (min-width: @screen-sm) {
+			padding-left: auto;
+		}		
 	}
 	
 }
