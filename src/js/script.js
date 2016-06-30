@@ -1,5 +1,18 @@
 $(document).ready(function(){
 
+    /* Скрывает блок с data при клике на предыдущий параграф */
+    var newsButton = $('.news__json');
+    $(newsButton).click(function(event){
+      event.preventDefault();      
+      $('.news__data').slideToggle();
+    });
+    var formButton = $('.form__json');
+    $(formButton).click(function(event){
+      event.preventDefault();      
+      $(this).parent().next('.form__data').slideToggle();
+    });
+
+  /* По кнопке в блоке news подгружаем файлы из json */
   $('.news__button').on('click',function(){
     $.getJSON('js/test.json', {}, function(json){
 
@@ -25,8 +38,7 @@ $(document).ready(function(){
   });
 
 
-
-  /* Open the modal window */
+  /* Открываем модальное окно */
   $('.form__button').on('click', function(event){ 
     event.preventDefault();
     $('.overlay').fadeIn(400,
@@ -36,7 +48,7 @@ $(document).ready(function(){
           .animate({opacity: 1}, 200); 
     });
   });
-  /* Close the modal window */
+  /* Закрываем модальное окно */
   $('.overlay').on('click', function(){ 
     $('.modal')
       .animate({opacity: 0}, 200,  
@@ -48,6 +60,7 @@ $(document).ready(function(){
   });
 
 
+  /* Убираем атрибут required у телефона если есть email, и наоборот */
   var inputTel = $('#feedback').find('input[type="tel"]');
   var inputEmail = $('#feedback').find('input[type="email"]'); 
 
@@ -67,20 +80,28 @@ $(document).ready(function(){
       $(inputTel).attr('required', 'required');
     };
   });
-//  ||
-// .removeAttr('required');
 
 
+  /* Найдем поля формы у которых атрибут required (! на текущий момент, при выполнении ajax) */
+  var requiredFields = $('#feedback').find('input[required="required"], textarea[required="required"]');
 
+  /* Функция проверки полей формы */
+  function checkInput(){
+    $(requiredFields).each(function(){
+      if($(this).val() != ''){
+        // success in ajax
+      } else {
+        // error in ajax
+      }
+    });
+  }
 
+    /* AJAX */
     var inputSubmit = $('#feedback').find('input[type="submit"]');
   $(inputSubmit).on('click',function(){
-   // var strInForm = $('#feedback').serialize();
-    // ajax body
     $.ajax({
       url: 'js/feedback.json',
       dataType: 'json',
-      // data: strInForm,
       success: function(json) {
         var result = '<span class="notification-success">' + json[0].msg + '</span>'; //success message
         $('.form-notif').html(result); //show success message
@@ -93,15 +114,14 @@ $(document).ready(function(){
   });
 
 
-
-    var content = $('.content');
-    var fixblock_width = $(content).parent().width();
-    var fixblock_pos = $(content).position().top;
-
+  /* Фиксация блока навигации наверху экрана при скролле */
+  var content = $('.content');
+  var fixblock_width = $(content).parent().width();
+  var fixblock_pos = $(content).position().top;
   if ($(window).width() > 970) {
     $(window).scroll(function(){
        if ($(window).scrollTop() > fixblock_pos){ 
-          $(content).css({'position': 'fixed', 'top':'0px', 'z-index':'10', 'width':fixblock_width}); 
+          $(content).css({'position': 'fixed', 'top':'0px', 'z-index':'7', 'width':fixblock_width}); 
        }else{  
           $(content).css('position', 'relative'); 
        }
@@ -109,28 +129,15 @@ $(document).ready(function(){
   }
 
 
-    var contentLink = $('.content').find('a');
-    $(contentLink).click( function(){
-  var scroll_el = $(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
-        if ($(scroll_el).length != 0) { // проверим существование элемента чтобы избежать ошибки
-      $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500); // анимируем скроолинг к элементу scroll_el
-        }
-      return false; // выключаем стандартное действие
-    });
-
-
-
-    var newsButton = $('.news__json');
-    $(newsButton).click(function(event){
-    event.preventDefault();      
-      $('.news__data').slideToggle();
-    });
-
-    var formButton = $('.form__json');
-    $(formButton).click(function(event){
-    event.preventDefault();      
-      $(this).parent().next('.form__data').slideToggle();
-    });
+  /* Плавный скролл по ссылкам в блоке навигации */
+  var contentLink = $('.content').find('a');
+  $(contentLink).click( function(){
+    var scroll_el = $(this).attr('href');
+      if ($(scroll_el).length != 0) { 
+    $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
+      }
+    return false;
+  });
     
 });
 
